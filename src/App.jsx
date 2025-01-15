@@ -1,16 +1,19 @@
-import { createContext, useState } from "react";
-import "./App.css";
-import CheckOut from "./CheckOut";
-import Login from "./Login";
-export const UserContext = createContext();
+import { useContext, useEffect } from "react";
+import NavBar from "./component/NavBar";
+import { GlobalContext } from "./context/Global";
+import Form from "./component/Form ";
+import Table from "./component/Table";
+
 function App() {
-  const [user, setuser] = useState("guest");
+  const { product, setProduct, fetchProucts } = useContext(GlobalContext);
+  useEffect(() => {
+    fetchProucts();
+  }, []);
+
   return (
     <div>
-      <UserContext.Provider value={{ user, setuser }}>
-        <Login />
-        <CheckOut />
-      </UserContext.Provider>
+      <Form />
+      <Table />
     </div>
   );
 }
