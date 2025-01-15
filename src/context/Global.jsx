@@ -12,12 +12,10 @@ const Global = ({ children }) => {
   const deletProduct = (id) => {
     setProduct(product.filter((p) => p.id != id));
   };
-  const addProduct = (form) => {
-    setProduct((p) => [...p, form]);
-  };
+
   return (
     <GlobalContext.Provider
-      value={{ product, setProduct, fetchProucts, deletProduct, addProduct }}
+      value={{ product, setProduct, fetchProucts, deletProduct }}
     >
       {children}
     </GlobalContext.Provider>

@@ -35,7 +35,7 @@ const Table = () => {
         <tbody
           style={{ display: "flex", flexDirection: "column", gap: "20px" }}
         >
-          {product?.map(({ id, title, price, descrption, category, image }) => {
+          {product?.map(({ id, title, price, category, image }) => {
             return (
               <tr
                 key={""}

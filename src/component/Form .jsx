@@ -1,24 +1,9 @@
 import { useState } from "react";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsFillEyeSlashFill } from "react-icons/bs";
-import { useContext } from "react";
-import { GlobalContext } from "../context/Global";
 
 const Form = () => {
-  const { product, addProduct } = useContext(GlobalContext);
   const [show, setShow] = useState(false);
-  const [form, setForm] = useState({});
-  const onChangeHandeler = (e) => {
-    setForm({
-      ...form,
-      id: parseInt(product.length + 1),
-      [e.target.name]: [e.target.value],
-    });
-  };
-  const HandleSubmit = (e) => {
-    e.preventDfault;
-    addProduct(form);
-  };
 
   return (
     <div
@@ -57,7 +42,6 @@ const Form = () => {
       </div>
       {show && (
         <form
-          onSubmit={HandleSubmit}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -68,31 +52,22 @@ const Form = () => {
             type="text"
             placeholder="title"
             style={{ borderRadius: "3px" }}
-            onChange={onChangeHandeler}
           />
           <input
             type="text"
             placeholder="price"
             style={{ borderRadius: "3px" }}
-            onChange={onChangeHandeler}
           />
-          <input
-            type="text"
-            placeholder="description"
-            style={{ borderRadius: "3px" }}
-            onChange={onChangeHandeler}
-          />
+          
           <input
             type="text"
             placeholder="image"
             style={{ borderRadius: "3px" }}
-            onChange={onChangeHandeler}
           />
           <input
             type="text"
             placeholder="category"
             style={{ borderRadius: "3px" }}
-            onChange={onChangeHandeler}
           />
           <button style={{ width: "30vh", backgroundColor: "#2b8ce28c" }}>
             Submit
